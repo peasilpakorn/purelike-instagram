@@ -16,10 +16,24 @@
         if(!sessionStorage.user){
             location.href="/";
         }
-        var loadnow = 0;
-        var loadall = 2;
-        $.getJSON(server.api+server.app+"/"+sessionStorage.user,function(res){
-            console.log(res);
+        var user;
+        var recent;
+        var getUser = function(){
+            $.getJSON(server.api+server.app+"/"+sessionStorage.user,function(res){
+                console.log(res);
+                user = res;
+            });
+        }
+        var getRecent = function(){
+            $.getJSON(server.api+server.app+"/"+sessionStorage.user+"/recent",function(res){
+                console.log(res);
+                recent = res;
+            });
+        }
+        $(function() {
+            $.when(getUser(),getRecent()).then(function(){
+                $("#middle-loader").hide();     
+            });
         });
 
     </script>
