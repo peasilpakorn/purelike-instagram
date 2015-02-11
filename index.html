@@ -8,23 +8,27 @@
   <!-- CSS  -->
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <script lang="javascript">
-        if(sessionStorage.user){
-            location.href="/user";
-        }
-    </script>
 </head>
 <body>
   <nav class="light-green darken-2" role="navigation">
-    <div class="container">
-      <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo" ><i class="mdi-image-photo-library"></i></a>
+      <div class="nav-wrapper">
+         <div class="valign-demo valign-wrapper left">
+             <a id="logo-container" href="#" class="brand-logo waves-effect waves-light" id="logo">
+                 <div class="hide-on-med-and-down">
+                     <span class="left" style="padding-left:20px;"><i class="mdi-image-photo-library"></i></span>
+                     <span class="left" style="padding-left:15px;font-size: 0.7em;font-weight:300;">Zeed.CF</span>
+                 </div>
+                 <div class="hide-on-large-only">
+				    <span style="font-size: 0.7em;font-weight:300;">Zeed.CF</span>
+                 </div>
+             </a>
+          </div>
         <ul id="nav-mobile" class="right side-nav">
 		<li><a href="#">ข้อมูลระบบ</a></li>		
 		<li><a href="#">ปริมาณไลค์</a></li>          
 		<li><a href="#">เติมเงิน</a></li>
         </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </div>
-    </div>
   </nav>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">

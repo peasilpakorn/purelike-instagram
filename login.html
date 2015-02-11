@@ -1,14 +1,10 @@
-<html>
-    <head>
-    <script language="javascript">
-        if(location.search){
-            sessionStorage.user=location.search.substring(1);
-            location.href="/user";
-        }
-        else{
-            sessionStorage.errorMessage="ไม่สามารถเข้าสู่ระบบได้";
-            location.href="/";
-        }
-    </script>
-    </head>
-</html>
+<script src="config.js"></script>
+<script language="javascript">
+    if(location.search){
+        sessionStorage.user=location.search.substring(1);
+    }
+    else{
+        sessionStorage.errorMessage="ไม่สามารถเข้าสู่ระบบได้";
+        location.href=server.api+"auth/"+server.app;
+    }
+</script>
