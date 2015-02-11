@@ -1,4 +1,3 @@
-var server = function(){
-	this.api = "https://api.zeed.cf/";
-	this.app = "zeedcf";
-}
+var server = {};
+server.api = "https://api.zeed.cf/";
+server.app = "zeedcf";
