@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>เพิ่มไลค์อินสตราแกรม</title>
+
+  <!-- CSS  -->
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+    <script src="config.js"></script>
+    <script lang="javascript">
+        if(!sessionStorage.user){
+            location.href="/";
+        }
+        var loadnow = 0;
+        var loadall = 2;
+        $.getJSON(server.api+server.app+"/"+sessionStorage.user,function(res){
+            console.log(res);
+        });
+
+    </script>
+</head>
+<body>
+  <nav class="light-green darken-2" role="navigation">
+    <div class="container">
+      <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo" ><i class="mdi-image-photo-library"></i></a>
+        <ul id="nav-mobile" class="right side-nav">
+		<li><a href="#">ข้อมูลระบบ</a></li>		
+		<li><a href="#">ปริมาณไลค์</a></li>          
+		<li><a href="#">เติมเงิน</a></li>
+        </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+  <div id="middle-loader" class="preloader-wrapper big active" style="position: fixed;top: 50%;left: 50%;margin-top: -30px;margin-left: -30px;">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+   </div>
+  </body>
+</html>
