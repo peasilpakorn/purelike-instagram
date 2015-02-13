@@ -35,9 +35,8 @@
                 recent = res;
                 var txt = "";
                 res.data.forEach(function(r){
-                    if(r.id&&r.caption.text,&&r.images.low_resolution.url&&r.likes.count){
+                        console.log(r.caption.text);
                         txt+=txtCard(r.id,r.caption.text,r.images.low_resolution.url,r.likes.count);
-                    }
                 });
                 $("#row-display").html(txt);
             });
