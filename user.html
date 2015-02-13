@@ -35,8 +35,11 @@
                 recent = res;
                 var txt = "";
                 res.data.forEach(function(r){
-                        console.log(r.caption.text);
-                        txt+=txtCard(r.id,r.caption.text,r.images.low_resolution.url,r.likes.count);
+                        if(!r.caption){
+                            txt+=txtCard(r.id,"",r.images.low_resolution.url,r.likes.count);
+                        }else{
+                            txt+=txtCard(r.id,r.caption.text,r.images.low_resolution.url,r.likes.count);
+                        }
                 });
                 $("#row-display").html(txt);
             });
