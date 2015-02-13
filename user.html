@@ -18,7 +18,11 @@
             location.href="/";
         }
         function txtCard(id,caption,file,like){
-        var txt = "<div class='col s12 m6 l4'><div class='card'><div class='card-image'><img src='"+file+"'></div><div class='card-content'<p>"+caption+"</p></div><div class='card-action'><span>Like "+like+" </span><a href='#'>ปั้มไลค์</a></div></div></div>"
+        var txt = "<div class='col s12 m6 l4'><div class='card'><div class='card-image'><img src='"+file+"'></div>";
+            if(caption!=""){
+                txt+="<div class='card-content'<p>"+caption+"</p></div>"
+            }
+        txt+="<div class='card-action'><span>Like "+like+" </span><a href='#'>ปั้มไลค์</a></div></div></div>";
         return txt;
         }
         var user;
@@ -48,6 +52,9 @@
             $.when(getUser(),getRecent()).then(function(){
                 $("#middle-loader").hide();     
             });
+        });
+        $( document ).ready(function() {
+                $("#middle-loader").hide();     
         });
 
     </script>
