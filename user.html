@@ -35,7 +35,7 @@
                 recent = res;
                 var txt = "";
                 res.data.forEach(function(r){
-                    txt+=txtCard("","",r.images.thumbnail,"");
+                    txt+=txtCard(r.id,r.caption.text,r.images.low_resolution.url,r.likes.count);
                 });
                 $("#row-display").html(txt);
             });
