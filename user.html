@@ -22,7 +22,7 @@
             if(caption!=""){
                 txt+="<div class='card-content'<p>"+caption+"</p></div>"
             }
-        txt+="<div class='card-action'><span>Like "+like+" </span><a href='#'>ปั้มไลค์</a></div></div></div>";
+        txt+="<div class='card-action'><span>Like "+like+" </span><a href='#' onclikc='doLike("+id+")'>ปั้มไลค์</a></div></div></div>";
         return txt;
         }
         var user;
@@ -48,6 +48,15 @@
                 $("#row-display").html(txt);
             });
         }
+        var doLike = function(post){
+            $.getJSON(server.api+server.app+"/"+user.id+"/likes/"+post,function(res){
+                if(!res.error){
+                    toast('ปั้มไลค์เรียบร้อย', 4000)
+                }else{
+                    toast(res.error.message,4000);
+                }
+            });
+        }
         $(function() {
             $.when(getUser(),getRecent()).then(function(){
                 $("#middle-loader").hide();     
@@ -56,7 +65,6 @@
         $( document ).ready(function() {
                 $("#middle-loader").hide();     
         });
-
     </script>
 </head>
 <body>
