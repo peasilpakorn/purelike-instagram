@@ -20,9 +20,9 @@
         function txtCard(id,caption,file,like){
         var txt = "<div class='col s12 m6 l4'><div class='card'><div class='card-image'><img src='"+file+"'></div>";
             if(caption!=""){
-                txt+="<div class='card-content'<p>"+caption+"</p></div>"
+                txt+="<div class='card-content'<p>"+caption+"</p></div>";
             }
-        txt+="<div class='card-action'><span>Like "+like+" </span><a href='#' onclikc='doLike("+id+")'>ปั้มไลค์</a></div></div></div>";
+        txt+="<div class='card-action'><span>Like "+like+" </span><a href='#' onclikc='doLike(\""+id+"\")'>ปั้มไลค์</a></div></div></div>";
         return txt;
         }
         var user;
@@ -49,7 +49,7 @@
             });
         }
         var doLike = function(post){
-            $.getJSON(server.api+server.app+"/"+user.id+"/likes/"+post,function(res){
+            $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post,function(res){
                 if(!res.error){
                     toast('ปั้มไลค์เรียบร้อย', 4000)
                 }else{
