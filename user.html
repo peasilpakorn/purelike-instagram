@@ -18,11 +18,11 @@
             location.href="/";
         }
         function txtCard(id,caption,file,like){
-        var txt = "<div class='col s12 m6 l4 break'><div class='card'><div class='card-image'><img src='"+file+"'></div>";
+        var txt = "<div class='col s12 m6 l4'><div class='card'><div class='card-image'><img src='"+file+"'></div>";
             if(caption!=""){
                 txt+="<div class='card-content'<p>"+caption+"</p></div>";
             }
-        txt+="<div class='card-action'><span>Like "+like+" </span><a href='javascript:void(0);' onclick='doLike(\""+id+"\")'>ปั้มไลค์</a></div></div></div>";
+        txt+="<div class='card-action'><span id='LIKE_"+id+"'>Like "+like+" </span><a href='javascript:void(0);' onclick='doLike(\""+id+"\")'>ปั้มไลค์</a></div></div></div>";
         return txt;
         }
         var user;
@@ -51,7 +51,10 @@
         var doLike = function(post){
             $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post,function(res){
                 if(!res.error){
-                    toast('ปั้มไลค์เรียบร้อย', 4000)
+                    $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post+"/info",function(res){
+                        $("LIKE_"+post).html("Like "+res.data.length);
+                        toast('ปั้มไลค์เรียบร้อย', 4000);
+                    });
                 }else{
                     toast(res.error.message,4000);
                 }
@@ -90,7 +93,7 @@
   </nav>
   <div class="">
       <div>
-        <div class="row break" id="row-display">
+        <div class="row" id="row-display">
 
         </div>
       </div>
