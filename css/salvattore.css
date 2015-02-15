@@ -1,0 +1,21 @@
+		@media screen and (min-width: 1px) and (max-width: 480px){
+		  #row-display[data-columns]::before {
+		    content: '1 s12';
+		  }
+		}
+
+        @media screen and (min-width: 481px) and (max-width: 767px){
+		  #row-display[data-columns]::before {
+		    content: '2 m6';
+		  }
+		}
+		@media screen and (min-width:768px) and (max-width: 991px){
+		  #row-display[data-columns]::before {
+		    content: '3 l4';
+		  }
+		}
+		@media screen and (min-width:992px) and (max-width: 9999px){
+		  #row-display[data-columns]::before {
+		    content: '3 l4';
+		  }
+		}
