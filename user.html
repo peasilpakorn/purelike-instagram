@@ -18,11 +18,7 @@
             location.href="/";
         }
         function txtCard(id,caption,file,like){
-        var txt = "<div class='col s12 m6 l3'><div class='card'><div class='card-image'><img src='"+file+"'></div>";
-            if(caption!=""){
-                txt+="<div class='card-content'<p>"+caption+"</p></div>";
-            }
-        txt+="<div class='card-action'><span id='LIKE_"+id+"'>Like "+like+" </span><a href='javascript:void(0);' onclick='doLike(\""+id+"\")'>ปั้มไลค์</a></div></div></div>";
+        var txt = "<div class='col s12 m6 l3'><div class='card-panel'><div class='card-image waves-effect waves-block waves-light'><img src='"+file+"'><span class='card-title' id='LIKE_"+id+"'>like</span></div></div></div>";
         return txt;
         }
         var user;
