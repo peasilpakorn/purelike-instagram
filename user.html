@@ -18,7 +18,7 @@
             location.href="/";
         }
         function txtCard(id,caption,file,like){
-        var txt = "<div class='col s12 m6 l3'><div class='card'><div class='card-image waves-effect waves-block waves-light' style='padding-right: 6px;padding-left: 6px;padding-top: 6px;'><img src='"+file+"' /><div class='card-title'><i class='mdi-action-favorite' style='font-size: 1rem;margin-right:2px;'></i><span id='LIKE_"+id+"'>"+like+"</span></div></div></div></div>";
+        var txt = "<div class='col s12 m6 l3'><div class='card'><div class='card-image waves-effect waves-block waves-light' style='padding-right: 6px;padding-left: 6px;padding-top: 6px;'><img src='"+file+"' /><div class='card-title activator'><i class='mdi-action-favorite' style='font-size: 1rem;margin-right:2px;'></i><span id='LIKE_"+id+"'>"+like+"</span></div></div><div class='card-reveal'><span class='card-title grey-text text-darken-4'>Card Title <i class='mdi-navigation-close right'></i></span><p>Here is some more information about this product that is only revealed once clicked on.</p></div></div></div>";
         return txt;
         }
         var user;
