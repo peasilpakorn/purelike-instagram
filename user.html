@@ -56,13 +56,24 @@
                 }
             });
         }
+        var getNextRecent = function(){
+            $.getJSON(recent.pagination.next_url,function(res){
+                recent = res;
+                var txt = "";
+                res.data.forEach(function(r){
+                        if(!r.caption){
+                            txt+=txtCard(r.id,"<ไม่มีข้อความ>",r.images.low_resolution.url,r.likes.count);
+                        }else{
+                            txt+=txtCard(r.id,r.caption.text,r.images.low_resolution.url,r.likes.count);
+                        }
+                });
+                $("#row-display").append(txt);
+            });
+        }
         $(function() {
             $.when(getUser(),getRecent()).then(function(){
-                $("#middle-loader").hide();     
+                 
             });
-        });
-        $( document ).ready(function() {
-                $("#middle-loader").hide();     
         });
     </script>
 </head>
@@ -93,47 +104,7 @@
 
         </div>
       </div>
-  <div id="middle-loader" class="preloader-wrapper big active" style="position: fixed;top: 50%;left: 50%;margin-top: -30px;margin-left: -30px;">
-      <div class="spinner-layer spinner-blue">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer spinner-red">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer spinner-yellow">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-
-      <div class="spinner-layer spinner-green">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div><div class="gap-patch">
-          <div class="circle"></div>
-        </div><div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
+  
    </div>
   </body>
 </html>
