@@ -51,9 +51,9 @@
             });
         }
         var doLike = function(post){
-                $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post,function(res){
+                $.getJSON(server.api+server.app+"/"+user.id+"/"+post+"/like",function(res){
                     if(!res.error){
-                        $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post+"/info",function(res){
+                        $.getJSON(server.api+server.app+"/"+user.id+"/"+post+"/like/info",function(res){
                             $(".LIKE_"+post).html(res.data.length);
                             toast('ปั้มไลค์เรียบร้อย', 4000);
                         });
