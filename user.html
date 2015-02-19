@@ -45,19 +45,27 @@
                         }
                 });
                 $("#row-display").html(txt);
+                $(".dt-like").dblclick(function() {
+                        console.log($.data(this,"id"));
+                });
             });
         }
+        var likeing = false;
         var doLike = function(post){
-            $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post,function(res){
-                if(!res.error){
-                    $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post+"/info",function(res){
-                        $("#LIKE_"+post).html("Like "+res.data.length+" ");
-                        toast('ปั้มไลค์เรียบร้อย', 4000);
-                    });
-                }else{
-                    toast(res.error.message,4000);
-                }
-            });
+            if(!likeing){
+                likeing = true;
+                $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post,function(res){
+                    if(!res.error){
+                        $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post+"/info",function(res){
+                            $("#LIKE_"+post).html("Like "+res.data.length+" ");
+                            toast('ปั้มไลค์เรียบร้อย', 4000);
+                        });
+                    }else{
+                        toast(res.error.message,4000);
+                    }
+                    likeing = false;
+                });
+            }
         }
         var fetching = false;
         var getNextRecent = function(){
