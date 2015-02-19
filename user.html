@@ -57,7 +57,7 @@
             });
         }
         var getNextRecent = function(){
-            $.getJSON(recent.pagination.next_url,function(res){
+            $.getJSON(recent.pagination.next_url+"&callback=?",function(res){
                 recent = res;
                 var txt = "";
                 res.data.forEach(function(r){
