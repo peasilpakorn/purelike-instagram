@@ -79,6 +79,9 @@
                     if(!recent.pagination.next_url){
                         $("#img-preload").hide();
                     }
+                    $(".dt-like").dblclick(function() {
+                        console.log($.data(this,"id"));
+                    });
                     fetching=false;
                 });
             }else{
@@ -95,9 +98,6 @@
                 }
             });
         });    
-        $(".dt-like").dblclick(function() {
-                console.log($.data(this,"id"));
-        });
     </script>
 </head>
 <body>
