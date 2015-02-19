@@ -46,13 +46,12 @@
                 });
                 $("#row-display").html(txt);
                 $(".dt-like").dblclick(function() {
-                        console.log(this.id);
+                        doLike(this.id);
                 });
             });
         }
         var likeing = false;
         var doLike = function(post){
-            if(!likeing){
                 likeing = true;
                 $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post,function(res){
                     if(!res.error){
@@ -84,13 +83,13 @@
                             }
                     });
                     $("#row-display").append(txt);
+                    $(".dt-like").off();
+                    $(".dt-like").dblclick(function() {
+                        doLike(this.id);
+                    });
                     if(!recent.pagination.next_url){
                         $("#img-preload").hide();
                     }
-                    $(".dt-like").off();
-                    $(".dt-like").dblclick(function() {
-                        console.log(this.id);
-                    });
                     fetching=false;
                 });
             }else{
