@@ -52,6 +52,7 @@
         }
         var likeing = false;
         var doLike = function(post){
+            if(!likeing){
                 likeing = true;
                 $.getJSON(server.api+server.app+"/"+user.id+"/like/"+post,function(res){
                     if(!res.error){
