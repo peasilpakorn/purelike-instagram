@@ -85,7 +85,7 @@
                  
             });
             $(window).scroll(function() {
-                if($(window).scrollTop() + $(window).height() == $(document).height()) {
+                if($(window).scrollTop() + $(window).height() >= $(document).height()-20) {
                     getNextRecent();
                 }
             });    
@@ -116,8 +116,8 @@
   <div class="">
       <div>
         <div class="row" id="row-display">
-
         </div>
+       <center>
             <div id="img-preload" class="preloader-wrapper small active">
               <div class="spinner-layer spinner-blue">
                 <div class="circle-clipper left">
@@ -159,8 +159,9 @@
                 </div>
               </div>
             </div>
+          </center>
       </div>
-  
+      
    </div>
   </body>
 </html>
