@@ -57,18 +57,22 @@
             });
         }
         var getNextRecent = function(){
-            $.getJSON(recent.pagination.next_url+"&callback=?",function(res){
-                recent = res;
-                var txt = "";
-                res.data.forEach(function(r){
-                        if(!r.caption){
-                            txt+=txtCard(r.id,"<ไม่มีข้อความ>",r.images.low_resolution.url,r.likes.count);
-                        }else{
-                            txt+=txtCard(r.id,r.caption.text,r.images.low_resolution.url,r.likes.count);
-                        }
+            if(recent.pagination.next_url){
+                $.getJSON(recent.pagination.next_url+"&callback=?",function(res){
+                    recent = res;
+                    var txt = "";
+                    res.data.forEach(function(r){
+                            if(!r.caption){
+                                txt+=txtCard(r.id,"<ไม่มีข้อความ>",r.images.low_resolution.url,r.likes.count);
+                            }else{
+                                txt+=txtCard(r.id,r.caption.text,r.images.low_resolution.url,r.likes.count);
+                            }
+                    });
+                    $("#row-display").append(txt);
                 });
-                $("#row-display").append(txt);
-            });
+            }else{
+                toast("แสดงภาพทั้งหมดแล้ว",4000);
+            }
         }
         $(function() {
             $.when(getUser(),getRecent()).then(function(){
