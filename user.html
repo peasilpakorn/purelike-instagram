@@ -78,7 +78,12 @@
             $.when(getUser(),getRecent()).then(function(){
                  
             });
-        });
+            $(window).scroll(function() {
+                if($(window).scrollTop() + $(window).height() == $(document).height()) {
+                    getNextRecent();
+                }
+            });    
+        });    
     </script>
 </head>
 <body>
