@@ -87,8 +87,9 @@
                     if(!recent.pagination.next_url){
                         $("#img-preload").hide();
                     }
+                    $(".dt-like").off();
                     $(".dt-like").dblclick(function() {
-                        console.log($.data(this,"id"));
+                        console.log(this.id);
                     });
                     fetching=false;
                 });
