@@ -59,8 +59,12 @@
                 }
             });
         }
+        var fetching = false;
         var getNextRecent = function(){
-            if(recent.pagination.next_url){
+            if(fetching){
+                return ;
+            }else if(recent.pagination.next_url){
+                fetching = true;
                 $.getJSON(recent.pagination.next_url+"&callback=?",function(res){
                     recent = res;
                     var txt = "";
@@ -75,6 +79,7 @@
                     if(!recent.pagination.next_url){
                         $("#img-preload").hide();
                     }
+                    fetching=false;
                 });
             }else{
                 
