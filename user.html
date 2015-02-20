@@ -53,10 +53,10 @@
         var doLike = function(post){
                 $("#"+post+" .likepop").show();
                 $("#"+post+" .likepop").animate({ 'zoom': 0.01}, 0,function(){    
-                    $("#"+post+" .likepop").animate({ 'zoom': 2}, 100,function(){
+                    $("#"+post+" .likepop").animate({ 'zoom': 1}, 300,function(){
                         $("#"+post+" .likepop").animate({ 'zoom': 1}, 100,function(){
                            $("#"+post+" .likepop").animate({ 'zoom': 0.99}, 200,function(){
-                                $("#"+post+" .likepop").animate({ 'zoom': 0.01}, 100,function(){
+                                $("#"+post+" .likepop").animate({ 'zoom': 0.01}, 300,function(){
                                     $("#"+post+" .likepop").hide();
                                 });
                             }); 
