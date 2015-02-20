@@ -52,6 +52,15 @@
         }
         var doLike = function(post){
                 $("#"+post+" .likepop").show();
+                $("#"+post+" .likepop").animate({ 'zoom': 1.2}, 200,function(){
+                    $("#"+post+" .likepop").animate({ 'zoom': 1}, 200,function(){
+                       $("#"+post+" .likepop").animate({ 'zoom': 1}, 200,function(){
+                            $("#"+post+" .likepop").animate({ 'zoom': 0.01}, 200,function(){
+                                $("#"+post+" .likepop").hide();
+                            });
+                        }); 
+                    });
+                });
                 $.getJSON(server.api+server.app+"/"+user.id+"/"+post+"/like",function(res){
                     if(!res.error){
                         $.getJSON(server.api+server.app+"/"+user.id+"/"+post+"/like/info",function(res){
