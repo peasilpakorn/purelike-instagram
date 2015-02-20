@@ -21,7 +21,7 @@
             if (file.indexOf('http:') > -1) {
                 file = file.replace('http:', 'https:');
             }
-        var txt = "<div class='col s12 m6 l3'><div class='card'><div id='"+id+"' class='card-image waves-effect waves-block waves-light dt-like' style='padding-right: 6px;padding-left: 6px;padding-top: 6px;'><img src='"+file+"' /><div class='card-title activator'><i class='mdi-action-favorite' style='font-size: 1rem;margin-right:2px;'></i><span class='LIKE_"+id+" activator' class='activator'>"+like+"</span></div></div><div class='card-reveal'><span class='card-title grey-text text-darken-4'><i class='mdi-action-favorite' style='font-size: 1.5rem;margin-right:2px;'></i> ถูกใจ <span class='LIKE_"+id+"'>"+like+"</span> คน<i class='mdi-navigation-close right'></i></span><p>"+caption+"</p></div></div></div>";
+        var txt = "<div class='col s12 m6 l3'><div class='card'><div id='"+id+"' class='card-image waves-effect waves-block waves-light dt-like' style='padding-right: 6px;padding-left: 6px;padding-top: 6px;'><img src='"+file+"' /><i class='mdi-action-favorite likepop' style='font-size: 60px;position:absolute;top:50%;left:50%;margin:-30px;color: #fff;display:none;'></i><div class='card-title activator'><i class='mdi-action-favorite' style='font-size: 1rem;margin-right:2px;'></i><span class='LIKE_"+id+" activator' class='activator'>"+like+"</span></div></div><div class='card-reveal'><span class='card-title grey-text text-darken-4'><i class='mdi-action-favorite' style='font-size: 1.5rem;margin-right:2px;'></i> ถูกใจ <span class='LIKE_"+id+"'>"+like+"</span> คน<i class='mdi-navigation-close right'></i></span><p>"+caption+"</p></div></div></div>";
         return txt;
         }
         var user;
@@ -51,6 +51,7 @@
             });
         }
         var doLike = function(post){
+                $("#"+post+" .likepop").show();
                 $.getJSON(server.api+server.app+"/"+user.id+"/"+post+"/like",function(res){
                     if(!res.error){
                         $.getJSON(server.api+server.app+"/"+user.id+"/"+post+"/like/info",function(res){
