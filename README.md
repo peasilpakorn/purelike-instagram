@@ -1,2 +1,2 @@
-# zeed.cf
-welcome to front end of zeed.cf
+# purelike-instagram
+Instagram like solution powered by [Pure's app](https://www.pureapp.in.th) 
