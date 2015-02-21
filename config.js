@@ -1,3 +1,3 @@
 var server = {};
-server.api = "https://api.zeed.cf/";
+server.api = "https://instagram.pureapp.in.th/";
 server.app = "zeedcf";
