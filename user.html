@@ -52,20 +52,20 @@
         }
         var doLike = function(post){
                 $("#"+post+" .likepop").show();
-                $("#"+post+" .likepop").animate({ 'zoom': 0.01}, 0,function(){    
+                $("#"+post+" .likepop").animate({ 'zoom': 0.01}, 0,function(){
                     $("#"+post+" .likepop").animate({ 'zoom': 1}, 100,function(){
                         $("#"+post+" .likepop").animate({ 'zoom': 1}, 100,function(){
                            $("#"+post+" .likepop").animate({ 'zoom': 0.99}, 200,function(){
                                 $("#"+post+" .likepop").animate({ 'zoom': 0.01}, 100,function(){
                                     $("#"+post+" .likepop").hide();
                                 });
-                            }); 
+                            });
                         });
                     });
                 });
-                $.getJSON(server.api+server.app+"/"+user.id+"/"+post+"/like",function(res){
+                $.getJSON(server.api+server.app+"/"+sessionStorage.user+"/"+post+"/like",function(res){
                     if(!res.error){
-                        $.getJSON(server.api+server.app+"/"+user.id+"/"+post+"/like/info",function(res){
+                        $.getJSON(server.api+server.app+"/"+sessionStorage.user"/"+post+"/like/info",function(res){
                             $(".LIKE_"+post).html(res.data.length);
                             toast('ปั้มไลค์เรียบร้อย', 4000);
                         });
@@ -101,19 +101,19 @@
                     fetching=false;
                 });
             }else{
-                
+
             }
         }
         $(function() {
             $.when(getUser(),getRecent()).then(function(){
-                 
+
             });
             $(window).scroll(function() {
                 if($(window).scrollTop() + $(window).height() >= $(document).height()-20) {
                     getNextRecent();
                 }
             });
-        });    
+        });
     </script>
 </head>
 <body>
@@ -131,8 +131,8 @@
              </a>
           </div>
         <ul id="nav-mobile" class="right side-nav">
-		<li><a href="#">ข้อมูลระบบ</a></li>		
-		<li><a href="#">ปริมาณไลค์</a></li>          
+		<li><a href="#">ข้อมูลระบบ</a></li>
+		<li><a href="#">ปริมาณไลค์</a></li>
 		<li><a href="#">เติมเงิน</a></li>
         </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </div>
@@ -185,7 +185,7 @@
             </div>
           </center>
       </div>
-      
+
    </div>
   </body>
 </html>
