@@ -53,6 +53,9 @@
                 $(".dt-like").on('doubletap', function(e) {
                     doLike(this.id);
                 });
+                if(!recent.pagination.next_url){
+                    $("#img-preload").hide();
+                }
             });
         }
         var doLike = function(post){
