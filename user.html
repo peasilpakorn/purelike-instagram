@@ -9,6 +9,7 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/jquery.finger.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="config.js"></script>
@@ -45,9 +46,13 @@
                         }
                 });
                 $("#row-display").html(txt);
+                $(".dt-like").on('doubletap', function(e) {
+                    console.log(this, e);
+                });
+                /*
                 $(".dt-like").dblclick(function() {
                         doLike(this.id);
-                });
+                });*/
             });
         }
         var doLike = function(post){
@@ -92,8 +97,12 @@
                     });
                     $("#row-display").append(txt);
                     $(".dt-like").off();
+                    /*
                     $(".dt-like").dblclick(function() {
                         doLike(this.id);
+                    });*/
+                    $(".dt-like").on('doubletap', function(e) {
+                        console.log(this, e);
                     });
                     if(!recent.pagination.next_url){
                         $("#img-preload").hide();
