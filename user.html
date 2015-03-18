@@ -47,7 +47,7 @@
                 });
                 $("#row-display").html(txt);
                 $(".dt-like").on('doubletap', function(e) {
-                    console.log(this, e);
+                    doLike(this.id);
                 });
                 /*
                 $(".dt-like").dblclick(function() {
@@ -102,7 +102,7 @@
                         doLike(this.id);
                     });*/
                     $(".dt-like").on('doubletap', function(e) {
-                        console.log(this, e);
+                        doLike(this.id);
                     });
                     if(!recent.pagination.next_url){
                         $("#img-preload").hide();
