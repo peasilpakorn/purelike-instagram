@@ -14,7 +14,17 @@
     <script src="config.js"></script>
     <script>
         $(function() {
-           $("#contact-me").attr("href",server.contact); 
+           $("#contact-me").attr("href",server.contact);
+            var txt = ""
+            server.saleinfo.forEach(function(r){
+                var pretext = "<tr>";
+                r.forEach(function(t){
+                    pretext += "<td>"+t+"</td>";
+                });
+                pretext+="</tr>";
+                txt+=pretext;
+            });
+            $("#tbod").html(txt);
         });
     </script>
 </head>
@@ -44,10 +54,7 @@
         <center><p>เนื่องจากเว็บนี้จำเป็นต้องมีการดูแลรักษาเว็บซึ่งมีค่าใช้จ่ายเราจึงขอบริจาคเงินจากคุณเพียงเล็กน้อยเพื่อบำรุงรักษาและในทางกลับกันเราจะเพิ่มความสามารถในการใช้งานให้กับคุณเป็นการตอบแทน</p></center>
         <table class="hoverable centered">
             <thead><tr><th>จำนวนไลค์</th><th>ดีเลย์ (นาที)</th><th>ราคา (บาท)</th><th>ระยะเวลา</th></tr></thead>
-            <tbody>
-                <tr><td>100</td><td>5</td><td>50</td><td>3 วัน</td></tr>
-                <tr><td>100</td><td>5</td><td>100</td><td>3 วัน</td></tr>
-                <tr><td>100</td><td>5</td><td>150</td><td>3 วัน</td></tr>
+            <tbody id="tbod">
             </tbody>
         </table>
         <center><p>ส่งข้อความมาหาเราพร้อมบอกบัญชีอินตราแกรมของคุณ เราจะติดต่อกลับไปเพื่อเลื่อนระดับให้กับคุณ</p></center>
