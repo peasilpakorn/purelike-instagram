@@ -14,8 +14,10 @@
     <script src="config.js"></script>
     <script>
         $(function() {
-           $("#contact-me").attr("href",server.contact);
+            $("#contact-me").attr("href",server.contact);
             $("#gotome").attr("href",server.contact);
+            $("#reseller").html(server.reseller);
+            $("#reseller").attr("href",server.contact);
             var txt = ""
             server.saleinfo.forEach(function(r){
                 var pretext = "<tr>";
@@ -33,7 +35,7 @@
   <nav class="light-green darken-2" role="navigation">
       <div class="nav-wrapper">
          <div class="valign-demo valign-wrapper left">
-             <a id="logo-container" href="#" class="brand-logo waves-effect waves-light" id="logo">
+             <a id="logo-container" href="/" class="brand-logo waves-effect waves-light" id="logo">
                  <div class="hide-on-med-and-down">
                      <span class="left" style="padding-left:20px;"><i class="mdi-image-photo-library"></i></span>
                      <span class="left" style="padding-left:15px;font-size: 0.7em;font-weight:300;">เพิ่มไลค์</span>
@@ -82,7 +84,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-        Reseller by <a class="orange-text text-lighten-3" href="http://www.pureapp.in.th">Place holder</a> | Made by <a class="orange-text text-lighten-3" href="http://www.pureapp.in.th">Pure's app</a>
+        Reseller by <a class="orange-text text-lighten-3" href="#" id="reseller">Place holder</a> | Made by <a class="orange-text text-lighten-3" href="http://www.pureapp.in.th">Pure's app</a>
       </div>
     </div>
   </footer>

@@ -13,7 +13,9 @@
     <script src="js/init.js"></script>
     <script>
         $(function() {
-           $("#contact-me").attr("href",server.contact); 
+            $("#contact-me").attr("href",server.contact); 
+            $("#reseller").html(server.reseller);
+            $("#reseller").attr("href",server.contact);
         });
     </script>
 </head>
@@ -114,7 +116,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Reseller by <a class="orange-text text-lighten-3" href="http://www.pureapp.in.th">Place holder</a> | Made by <a class="orange-text text-lighten-3" href="http://www.pureapp.in.th">Pure's app</a>
+      Reseller by <a class="orange-text text-lighten-3" href="#" id="reseller">Place holder</a> | Made by <a class="orange-text text-lighten-3" href="http://www.pureapp.in.th">Pure's app</a>
       </div>
     </div>
   </footer>
