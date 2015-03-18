@@ -33,6 +33,7 @@
                 $.getJSON(server.api+server.app+"/level/"+res.level,function(res){
                     $("#like-per-min").html(res.liked+" ไลค์ / "+Math.round(res.cooldown/60)+" นาที");
                 });
+                $("#user_display").html("<img src='"+user.profile_picture+"' height='24px' width='24px' class='img-circle' /> "+user.username);
                 console.log(res);
             });
         }
@@ -135,8 +136,8 @@
              </a>
           </div>
         <ul id="nav-mobile" class="right side-nav">
-		<li><a href="#" id="like-per-min"></a></li>
-		<li><a href="#">ติดต่อเรา</a></li>
+		<li><a href="#" id="user_display"></a></li>
+        <li><a href="#" id="like-per-min"></a></li>
 		<li><a href="#">ลดเวลาการรอ</a></li>
         </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </div>
