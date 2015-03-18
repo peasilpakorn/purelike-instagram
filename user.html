@@ -33,7 +33,7 @@
                 $.getJSON(server.api+server.app+"/level/"+res.level,function(res){
                     $("#like-per-min").html(res.liked+" ไลค์ / "+Math.round(res.cooldown/60)+" นาที");
                 });
-                $("#user_display").html("<img src='"+user.profile_picture+"' height='24px' width='24px' class='img-circle' /> "+user.username);
+                $("#user_display").html("<img src='"+user.profile_picture+"' height='48px' width='48px' class='circle' /> "+user.username);
                 console.log(res);
             });
         }
