@@ -29,8 +29,11 @@
         var recent;
         var getUser = function(){
             $.getJSON(server.api+server.app+"/"+sessionStorage.user,function(res){
-                console.log(res);
                 user = res;
+                $.getJSON(server.api+server.app+"/level/"+res.level,function(res){
+                    $("#like-per-min").html(res.liked+" ไลค์ / "+Math.round(res.cooldown/60)+" นาที");
+                });
+                console.log(res);
             });
         }
         var getRecent = function(){
@@ -49,10 +52,6 @@
                 $(".dt-like").on('doubletap', function(e) {
                     doLike(this.id);
                 });
-                /*
-                $(".dt-like").dblclick(function() {
-                        doLike(this.id);
-                });*/
             });
         }
         var doLike = function(post){
@@ -97,10 +96,6 @@
                     });
                     $("#row-display").append(txt);
                     $(".dt-like").off();
-                    /*
-                    $(".dt-like").dblclick(function() {
-                        doLike(this.id);
-                    });*/
                     $(".dt-like").on('doubletap', function(e) {
                         doLike(this.id);
                     });
@@ -140,9 +135,9 @@
              </a>
           </div>
         <ul id="nav-mobile" class="right side-nav">
-		<li><a href="#">ข้อมูลระบบ</a></li>
-		<li><a href="#">ปริมาณไลค์</a></li>
-		<li><a href="#">เติมเงิน</a></li>
+		<li><a href="#" id="like-per-min"></a></li>
+		<li><a href="#">ติดต่อเรา</a></li>
+		<li><a href="#">ลดเวลาการรอ</a></li>
         </ul><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
       </div>
   </nav>
